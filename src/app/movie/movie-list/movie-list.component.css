@@ -1,0 +1,12 @@
+img.movie-img {
+  max-width: 250px;
+}
+
+tr:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+thead {
+  background-color: mediumturquoise;
+}
