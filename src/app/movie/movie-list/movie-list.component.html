@@ -2,9 +2,10 @@
   <div>
     @if (selected) {
     <div *ngIf="selected">
-      <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
+      <app-movie-detail [movieDetail]="selectedMovie"></app-movie-detail>
     </div>
     }
+
     <table>
       <thead>
         <tr>
@@ -26,10 +27,26 @@
             />
           </td>
           <td>{{ movie.duracion_minutos }} min</td>
-          <td>{{ movie.director }} </td>
+          <td>{{ movie.director }}</td>
         </tr>
         }
       </tbody>
     </table>
+
+    <h3>Actores por película</h3>
+
+    <div class="actors-chart">
+      @for(movie of movies; track movie.id){
+      <div class="bar-container">
+        <span class="movie-title">{{ movie.titulo }}</span>
+        <div
+          class="bar"
+          [style.width.%]="movie.actores.length * 15"
+        >
+          {{ movie.actores.length }} actores
+        </div>
+      </div>
+      }
+    </div>
   </div>
 </div>
